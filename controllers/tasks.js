@@ -2,7 +2,7 @@ import { TaskModel } from "../models/task"
 
 export const getAllTasks = (req, res) => {
 
-    const tasks = await TaskModel.getAllTasks()
+    const tasks = TaskModel.getAllTasks()
     res.json(tasks)
 }
 

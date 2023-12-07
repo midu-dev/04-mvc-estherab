@@ -23,7 +23,7 @@
     * @static
     * @returns {Array<Object>} Array of tasks.
     */
-    static async getAllTasks() {
+    static getAllTasks() {
       return tasks;
     } 
  /**
