@@ -24,7 +24,7 @@
     * @returns {Array<Object>} Array of tasks.
     */
     static async getAllTasks() {
-       return tasks;
+      return tasks;
     } 
  /**
     * Adds a new task to the list.
@@ -50,7 +50,7 @@
     * @static
     * @param {number} id - The ID of the task to delete.
     */ 
-    static async(id) {
+    static async deleteTask(id) {
        const idInt = parseInt(id, 10)
  
        if (isNaN(idInt)) throw new Error('Invalid ID')
