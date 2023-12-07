@@ -13,5 +13,5 @@ export const addTask = async (req, res) => {
 
 export const deleteTask = (req, res) => {
   TaskModel.deleteTask(req.params.id)
-  res.json({ message: 'Task deleted' })
+  res.json({ message: 'Deleted successfully' })
 }
