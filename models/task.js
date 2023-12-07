@@ -32,11 +32,7 @@
     * @param {string} description - The description of the task.
     * @returns {Object} The new task object.
     */
-   static async addTask (description = '') {
-     if (!description) {
-       return {}
-     }
- 
+   static async addTask (description) {
      const task = {
        id: currentId,
        description
@@ -55,9 +51,9 @@
     * @static
     * @param {number} id - The ID of the task to delete.
     */
-   static async deleteTask (id = 0) {
-     const removeTask = tasks.filter((task) => task.id !== Number(id))
-     tasks = removeTask
-     return tasks
+   static async deleteTask (id) {
+
+      const index = tasks.findIndex(task => task.id = Number(id))
+      tasks.splice(index, 1)
    }
  }
