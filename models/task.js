@@ -33,7 +33,7 @@
     * @param {string} description - The description of the task.
     * @returns {Object} The new task object.
     */
-    static async addTask(description) {
+    static addTask(description) {
        const task = {
           id: currentId,
           description
@@ -50,7 +50,7 @@
     * @static
     * @param {number} id - The ID of the task to delete.
     */ 
-    static async deleteTask(id) {
+    static deleteTask(id) {
        const idInt = parseInt(id, 10)
  
        if (isNaN(idInt)) throw new Error('Invalid ID')
