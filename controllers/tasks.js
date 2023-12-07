@@ -2,19 +2,16 @@
 import { TaskModel } from '../models/task.js'
 
 export const getAllTasks = async (req, res) => {
-  
-  const tasks = TaskModel.getAllTasks()
+  const tasks = await TaskModel.getAllTasks()
   res.json(tasks)
 }
 
-export const addTask = async (req, res) => {
-
-  const task = TaskModel.addTask(req.body.description)
+export const addTask = async ({ body }, res) => {
+  const task = await TaskModel.addTask(body.description)
   res.json(task)
 }
 
-export const deleteTask = (req, res) => {
-
-  TaskModel.deleteTask(req.params.id)
-  res.json({ message: 'Task deleted' })
+export const deleteTask = ({ params }, res) => {
+  TaskModel.deleteTask(params.id)
+  res.json({ message: 'Deleted successfully' })
 }

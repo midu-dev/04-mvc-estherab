@@ -2,7 +2,7 @@
  * Array to store tasks.
  * @type {Array<Object>}
  */
- const tasks = []
+ let tasks = []
 
  /**
   * ID for the next task. Increments each time a new task is added.
@@ -14,8 +14,6 @@
   * Model class representing a task.
   * @class
   */
- 
- 
  export class TaskModel {
    /**
     * Fetches all tasks.
@@ -23,43 +21,43 @@
     * @static
     * @returns {Array<Object>} Array of tasks.
     */
-    static getAllTasks() {
-      return tasks;
-    } 
- /**
+   static async getAllTasks () {
+     return tasks
+   }
+ 
+   /**
     * Adds a new task to the list.
     * @name TaskModel.addTask
     * @static
     * @param {string} description - The description of the task.
     * @returns {Object} The new task object.
     */
-    static addTask(description) {
-       const task = {
-          id: currentId,
-          description
-       }
-       
-       tasks.push()
-       currentId++;
+   static async addTask (description = '') {
+     if (!description) {
+       return {}
+     }
  
-       return task;
-    }
- /**
+     const task = {
+       id: currentId,
+       description
+     }
+ 
+     currentId++
+ 
+     tasks.push(task)
+ 
+     return task
+   }
+ 
+   /**
     * Deletes a task from the list by its ID.
     * @name TaskModel.deleteTask
     * @static
     * @param {number} id - The ID of the task to delete.
-    */ 
-    static deleteTask(id) {
-       const idInt = parseInt(id, 10)
- 
-       if (isNaN(idInt)) throw new Error('Invalid ID')
- 
-       const index = tasks.findIndex(task => task.id = id)
- 
-       if (index === -1) throw new Error('ID not found')
-       
-       tasks.splice(index, 1)
-    }
+    */
+   static async deleteTask (id = 0) {
+     const removeTask = tasks.filter((task) => task.id !== Number(id))
+     tasks = removeTask
+     return tasks
+   }
  }
- 
